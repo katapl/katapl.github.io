@@ -1,37 +1,35 @@
 
-    /* .image-container {
-        width: 100%;
-        height: 30rem;
-        transition: opacity 0.5s ease-in-out;
-    }
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    } */
-
-    /* Container to hold the stacked images */
 .banner-container {
   position: relative;
   width: 100%;
-  height: 600px; /* Adjust this to match your design */
+  aspect-ratio: 16 / 9; 
+  max-height: 600px;
   overflow: hidden;
 }
 
-/* Base style for all images */
 .banner-image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Keeps images from squishing */
-  opacity: 0; /* Hidden by default */
-  transition: opacity 1s ease-in-out; /* The fade animation */
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-/* Style applied only to the current image */
 .banner-image.active {
-  opacity: 1; /* Fully visible */
+  opacity: 1;
 }
+
+/* @media screen and (max-width: 1080px) {
+  .banner-container {
+    height: 400px;
+  }
+} */
+
+/* @media screen and (max-width: 600px) {
+  .banner-container {
+    max-height: 200px;
+  }
+} */

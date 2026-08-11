@@ -3,7 +3,7 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <header>
-    <nav>
+    <nav class="topnav"id="myTopnav">
         <h1><a href="/">plesova_katerina</a></h1>
         <div class="topbar-center">
             <HeaderLink href="/ux">UX DESIGN</HeaderLink>
@@ -14,6 +14,9 @@ import HeaderLink from './HeaderLink.astro';
             <HeaderLink href="/#about">about me</HeaderLink>
             <!-- <HeaderLink href="/#contact">contact</HeaderLink> -->
         </div>
+        <button class="icon" id="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="fa fa-bars"></i>
+        </button>
     </nav>
 </header>
 
@@ -22,12 +25,16 @@ import HeaderLink from './HeaderLink.astro';
 		margin: 0;
 		padding: 0 4em;
 		background: black;
+        z-index: 1000;
+        position: relative;
 	}
     nav {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        position: relative;
+        min-height: 4rem;
         /* padding: 0.8rem 3rem 0.8rem 3rem; */
     }
 
@@ -64,9 +71,66 @@ import HeaderLink from './HeaderLink.astro';
         display: flex;
         gap: 1.5rem;
     }
-/* 
+
     #contact {
 	    scroll-behavior: smooth;
-    } */
+    }
+
+    nav .icon {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 1rem 0;
+    }
+
+    @media screen and (max-width: 1080px) {
+        header {
+            padding: 0 2em;
+        }
+
+        .topbar-center, .topbar-right {
+            display: none;
+        }
+
+        nav .icon {
+            display: block;
+        }
+        
+        nav.responsive {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-bottom: 1.5rem;
+        }
+
+        nav.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        nav.responsive .topbar-center, 
+        nav.responsive .topbar-right {
+            display: flex;
+            flex-direction: column;
+            position: static;
+            transform: none;
+            width: 100%;
+            gap: 1rem;
+            padding-top: 1rem;
+        }
+    }
     
 </style>
+<script>
+    const btn = document.getElementById("mobile-menu-btn");
+    const nav = document.getElementById("myTopnav");
+
+    if (btn && nav) {
+        btn.addEventListener("click", () => {
+            nav.classList.toggle("responsive");
+        });
+    }
+</script>

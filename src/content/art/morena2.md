@@ -1,6 +1,6 @@
 ---
 title: 'Morena Illustration'
-heroImage: '../../../public/banner/morena2.png'
+heroImage: '../../assets/banner/morena2.png'
 description: 'Illustration made for my final project at The Secondary School of Applied Arts in Uherské Hradiště.'
 pubDate: 'Jul 08 2023'
 project: 'High School Final Project - Morena'

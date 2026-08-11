@@ -25,7 +25,9 @@ const designs = (await getCollection('graphic_design')).sort(
 
 <style>
 	main {
-		width: 1200px;
+		max-width: 1200px;
+		 width: 100%;
+        margin: 0 auto;
 	}
 
 	.image-gallery {
@@ -41,14 +43,14 @@ const designs = (await getCollection('graphic_design')).sort(
 	.image-gallery img {
 		display: block;
 		width: 100%;
-		max-height: fit-content;
+		height: auto;
 		border-radius: 5px;
 		margin-bottom: 1.25rem;
-		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		box-shadow: var(--box-shadow);
+		/* box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 		transition: transform 0.3s ease-in-out;
 	}
     .image-gallery img:hover {
-        /* box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
         transform: scale(1.02);
     }
 

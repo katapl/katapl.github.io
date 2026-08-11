@@ -1,6 +1,6 @@
 ---
 title: 'Apples painting exercise'
-heroImage: '../../../public/banner/apples.png'
+heroImage: '../../assets/banner/apples.png'
 description: 'Drawing exercise.'
 pubDate: 'Jul 08 2022'
 ---

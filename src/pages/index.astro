@@ -1,13 +1,30 @@
 ---
 import Banner from '../components/Banner';
+import { getImage } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+
+import morena from '../assets/banner/morena.png';
+import homesick from '../assets/banner/homesick.png';
+import grime from '../assets/banner/grime.png';
+import morena2 from '../assets/banner/morena2.png';
+
+const optMorena = await getImage({ src: morena, format: 'webp' });
+const optHomesick = await getImage({ src: homesick, format: 'webp' });
+const optGrime = await getImage({ src: grime, format: 'webp' });
+const optMorena2 = await getImage({ src: morena2, format: 'webp' });
+
+const bannerImages = [
+  optMorena.src,
+  optHomesick.src,
+  optGrime.src,
+  optMorena2.src
+];
 ---
 
 <Layout>
-	
 	<div class="container">
 
-		<Banner client:load />
+		<Banner optimizedImages={bannerImages} client:load />
 		<!-- <div class="centered">
 			<span  class="big">This is my <br> portfolio.</span>
 			<p class="small">Welcome :)</p>
@@ -17,6 +34,7 @@ import Layout from '../layouts/Layout.astro';
 		<!-- <img class="banner" src="/banner/homesick.png" style="object-position: top;"/> -->
 		 
 	</div>
+	<main>
 	 <div class="about" id="about">
 		<div>
 			<h2>About Me</h2>
@@ -26,7 +44,7 @@ import Layout from '../layouts/Layout.astro';
 					
 					<p>
 						My name is Kateřina Plešová and I am a designer and illustrator.
-						I have studied both multimedia art and computer science, which allows me to combine my technical and creative skills.
+						I have studied both multimedia art and computer science, which allows<nobr> me to </nobr>combine my technical and creative skills.
 					</p>
 					<h3>Education</h3>
 					<ul>
@@ -40,7 +58,7 @@ import Layout from '../layouts/Layout.astro';
 						</li>
 						<li>
 							<p class="education">
-								The Secondary School of Applied Arts in Uherské Hradiště
+								The Secondary School of Applied Arts<nobr> in </nobr>Uherské Hradiště
 							</p>
 							<span>
 								Specialisation in Multimedia
@@ -67,7 +85,7 @@ import Layout from '../layouts/Layout.astro';
 					<li>HTML, CSS</li>
 				</ul>
 			</div>
-			<div>
+			<div id="contact">
 				<h3>Contact</h3>
 				<ul>
 					<li>
@@ -90,30 +108,41 @@ import Layout from '../layouts/Layout.astro';
 		</div> -->
 		
 	</div>
+	</main>
 </Layout>
 
 <style>
 	.about {
-		padding: 2rem 17rem 4rem 17rem;
-	
+		/* max-width: 960px;
+		width: 100%;
+        margin: 0 auto; */
+		/* padding: 2rem 4rem; */
 	}
 	h2 {
 		font-size: 2rem;
 		margin-bottom: 1rem;
+		text-decoration: var(--secondary) underline;
+		text-underline-offset: 6px;
+		text-decoration-thickness: 6px;
 	}
 
 	h3 {
 		font-size: 1.5rem;
 		margin-bottom: 1rem;
+		/* text-decoration: var(--secondary) underline;
+		text-underline-offset: 6px;
+		text-decoration-thickness: 4px; */
 	}
 
 	p {
 		font-size: 1.2rem;
+		margin-top: 0;
 		line-height: 1.8rem;
 	}
 	li {
 		font-size: 1.2rem;
 		line-height: 1.6;
+		width: fit-content;
 	}
 	.education {
 		font-weight: bold;
@@ -129,9 +158,11 @@ import Layout from '../layouts/Layout.astro';
 	}
 	img {
 		width: 100%;
-		/* height: 50%; */
+		/* height: 80%; */
 		object-fit: cover;
 		object-position: top;
+		border-radius: 5px;
+		
 	}
 	.container {
 		width: 100%;
@@ -157,9 +188,6 @@ import Layout from '../layouts/Layout.astro';
 	.small {
 		font-size: 1em;
 	}
-	.skillset {
-		display: flex;
-	}
 	.banner {
 		height: 28em;
 		/* box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
@@ -171,10 +199,46 @@ import Layout from '../layouts/Layout.astro';
 	.skillset {
 		display: flex;
 		justify-content: space-between;
-		padding-top: 0.5em;
 		/* gap: 4rem; */
 	}
-	a{
+	a {
 		color: black
+	}
+
+	@media screen and (max-width: 768px) {
+	  .intro {
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	  }
+	  main {
+		padding: 2rem 1rem;
+	  }
+	  h2 {
+		font-size: 1rem;
+	  }
+	  h3 {
+		font-size: 0.8rem;
+		margin: 0;
+	  }
+	  p {
+		font-size: 12px;
+		line-height: normal;
+	  }
+	  span {
+		font-size: 12px;
+	  }
+	  li {
+		font-size: 12px;
+	  }
+	  ul {
+		margin: 0
+	  }
+	  .skillset {
+		flex-direction: column;
+	  }
+	  img {
+		display: none;
+	  }
 	}
 </style>
