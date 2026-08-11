@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './BannerStyle.css'
 
-const images = [ '/public/banner/morena.png', '/public/banner/homesick.png', '/public/banner/grime.png', '/public/banner/morena2.png'];
+const images = [ '/banner/morena.png', '/banner/homesick.png', '/banner/grime.png', '/banner/morena2.png'];
 
 export default function Banner() {
   const [currentIndex, setCurrentIndex] = useState(0);
