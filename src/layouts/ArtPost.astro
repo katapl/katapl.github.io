@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Footer from '../components/Footer.astro';
+import TopBar from '../components/TopBar.astro';
+import '../styles/global.css';
+
+type Props = CollectionEntry<'art'>['data'];
+
+const { title, heroImage, description } = Astro.props;
+---
+
+<!doctype html> 
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="stylesheet" href="src/styles/global.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0;
+			}
+			.hero-image {
+				width: 100%;
+			}
+			.hero-image img {
+                height: 35em;
+                width: auto;
+				display: block;
+				margin: 0 auto;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+			article {
+				padding-top: 2em;
+				padding-bottom: 2em;
+			}
+            p{
+                text-align: center;
+                line-height: 1.5;
+            }
+		</style>
+	</head>
+	<body>
+		<TopBar />
+		<article>
+			<div class="hero-image">
+				{heroImage && <Image src={heroImage} alt="" />}
+			</div>
+			<div class="prose">
+				<div class="title">
+					<h1>{title}</h1>
+					{description && <hr />}
+                    <p>{description}</p>
+				</div>
+				<!-- <slot /> -->
+                 <!-- add others in this project? -->
+			</div>
+		</article>
+		<Footer />
+	</body>
+</html>

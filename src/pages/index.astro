@@ -4,26 +4,177 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Banner client:load />
-	<div>
-		<h2>About Me</h2>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</p>
+	
+	<div class="container">
+
+		<Banner client:load />
+		<!-- <div class="centered">
+			<span  class="big">This is my <br> portfolio.</span>
+			<p class="small">Welcome :)</p>
+		</div> -->
+		<!-- <img src="src/assets/banner2.png"/> -->
+		<!-- <img class="banner" src="src/assets/banner/morena.png"/> -->
+		<!-- <img class="banner" src="src/assets/banner/homesick.png" style="object-position: top;"/> -->
+		 
+	</div>
+	 <div class="about" id="about">
+		<div>
+			<h2>About Me</h2>
+			<div class="intro">
+				<div>
+
+					
+					<p>
+						My name is Kateřina Plešová and I am a designer and illustrator.
+						I have studied both multimedia art and computer science, which allows me to combine my technical and creative skills.
+					</p>
+					<h3>Education</h3>
+					<ul>
+						<li>
+							<p class="education">
+								Mendel university in Brno
+							</p>
+							<span>
+								Bachelor's Degree in Open Informatics
+							</span>
+						</li>
+						<li>
+							<p class="education">
+								The Secondary School of Applied Arts in Uherské Hradiště
+							</p>
+							<span>
+								Specialisation in Multimedia
+							</span>
+						</li>
+					</ul>
+				</div>
+				<img src="src/assets/portrait.png" style="width: 20em; height: 25em; object-fit: cover;"/>
+			</div>
+			<div class="skillset">
+			<div>
+				<h3>Tools</h3>
+				<ul>
+					<li>Figma</li>
+					<li>Adobe Suite</li>
+					<li>Affinity</li>
+				</ul>
+			</div>
+			<div>
+				<h3>Skills</h3>
+				<ul>
+					<li>UX/UI design</li>
+					<li>Design systems</li>
+					<li>HTML, CSS</li>
+				</ul>
+			</div>
+			<div>
+				<h3>Contact</h3>
+				<ul>
+					<li>
+						<a href="mailto:plesovakaterina@gmail.com">plesovakaterina@gmail.com</a>
+					</li>
+					<li>
+						<a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/kata_plsv/">IG: @kata_plsv</a>
+					</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+		
+		<!-- <div id="contact">
+
+			<h2>Contact</h2>
+			<p>You can contact me at <a
+				href="mailto:plesovakaterina@gmail.com">plesovakaterina@gmail.com</a> or through Instagram at <a
+				target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/kata_plsv/">@kata_plsv</a>.</p>
+		</div> -->
+		
 	</div>
 </Layout>
 
 <style>
-	div {
-		padding: 2rem 8rem 2rem 8rem;
+	.about {
+		padding: 2rem 17rem 4rem 17rem;
+	
 	}
 	h2 {
 		font-size: 2rem;
 		margin-bottom: 1rem;
 	}
 
+	h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
 	p {
 		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+	li {
+		font-size: 1.2rem;
 		line-height: 1.6;
+	}
+	.education {
+		font-weight: bold;
+	}
+	span {
+		font-size: 0.9em;
+	}
+	ul {
+		list-style-type: square;
+	}
+	ul p {
+		margin: 0.4em 0;
+	}
+	img {
+		width: 100%;
+		/* height: 50%; */
+		object-fit: cover;
+		object-position: top;
+	}
+	.container {
+		width: 100%;
+		/* height: 20em; */
+		/* morena height */
+		/* height: 25em; */
+		overflow: hidden;
+		position: relative;
+		text-align: left;
+		color: white;
+	}
+	.centered {
+		padding: 0;
+		/* font-size: 2.5em; */
+		position: absolute;
+		top: 50%;
+		right: 60%;
+		transform: translate(-50%, -50%);
+	}
+	.big {
+		font-size: 2.5em;
+	}
+	.small {
+		font-size: 1em;
+	}
+	.skillset {
+		display: flex;
+	}
+	.banner {
+		height: 28em;
+		/* box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+	}
+	.intro {
+		display: flex;
+		gap: 4rem;
+	}
+	.skillset {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 0.5em;
+		/* gap: 4rem; */
+	}
+	a{
+		color: black
 	}
 </style>

@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const designs = (await getCollection('graphic_design')).sort(
+    (a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+<Layout>
+	<main>
+            <section class="image-gallery">
+                <div>
+                    {designs.map((post: any) => (
+                        <a href={`/graphic-design/${post.id}/`}>
+                            {post.data.heroImage && (
+                                <Image src={post.data.heroImage} alt="" />
+                            )}
+                        </a>
+                    ))}
+                </div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		width: 1200px;
+	}
+
+	.image-gallery {
+		/* margin-top: 2rem; */
+		text-align: center;
+	}
+
+	.image-gallery > div {
+		columns: 3;
+		gap: 1.25rem;
+		padding-top: 1.25rem;
+	}
+	.image-gallery img {
+		display: block;
+		width: 100%;
+		max-height: fit-content;
+		border-radius: 5px;
+		margin-bottom: 1.25rem;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		transition: transform 0.3s ease-in-out;
+	}
+    .image-gallery img:hover {
+        /* box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+        transform: scale(1.02);
+    }
+
+	@media (max-width:48rem) {
+		.image-gallery > div {
+			columns: 2;
+		}
+	}
+
+	@media (max-width:32rem) {
+		.image-gallery > div {
+			columns: 1;
+		}
+	}
+</style>

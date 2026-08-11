@@ -1,0 +1,44 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+import ArtPost from '../../layouts/ArtPost.astro';
+
+
+export async function getStaticPaths() {
+	const ux = await getCollection('ux');
+	const art = await getCollection('art');
+	const graphic_design = await getCollection('graphic_design');
+
+  	const blogPaths = ux.map(post => ({
+    	params: { collection: 'ux', slug: post.id },
+    	props: { post, layout: 'ux' },
+  	}));
+
+  	const artPaths = art.map(post => ({
+    	params: { collection: 'art', slug: post.id },
+    	props: { post, layout: 'art' },
+  	}));
+
+	const designPaths = graphic_design.map(post => ({
+    	params: { collection: 'graphic-design', slug: post.id },
+    	props: { post, layout: 'art' },
+  	}));
+
+  return [...blogPaths, ...artPaths, ...designPaths];
+}
+
+const { post, layout } = Astro.props;
+const { Content } = await render(post);
+---
+
+{layout === 'ux' && (
+  <BlogPost {...post.data}>
+    <Content />
+  </BlogPost>
+)}
+
+{layout === 'art' && (
+  <ArtPost {...post.data}>
+    <Content />
+  </ArtPost>
+)}

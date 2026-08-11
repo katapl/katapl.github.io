@@ -1,7 +1,7 @@
 
-    .image-container {
+    /* .image-container {
         width: 100%;
-        height: 100%;
+        height: 30rem;
         transition: opacity 0.5s ease-in-out;
     }
 
@@ -9,5 +9,29 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* border: 10px solid pink; */
-    }
+    } */
+
+    /* Container to hold the stacked images */
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Adjust this to match your design */
+  overflow: hidden;
+}
+
+/* Base style for all images */
+.banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps images from squishing */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 1s ease-in-out; /* The fade animation */
+}
+
+/* Style applied only to the current image */
+.banner-image.active {
+  opacity: 1; /* Fully visible */
+}

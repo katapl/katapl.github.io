@@ -1,0 +1,59 @@
+---
+import HeaderLink from './HeaderLink.astro';
+---
+<footer>
+        <!-- <div class="col">
+            <HeaderLink href="/contact">CONTACT</HeaderLink>
+            <HeaderLink href="/">ABOUT ME</HeaderLink>
+            <HeaderLink href="/">INSTAGRAM</HeaderLink>
+        </div>
+        <div class="col">
+            <HeaderLink href="/ux">UX DESIGN</HeaderLink>
+            <HeaderLink href="/art">ILLUSTRATION</HeaderLink>
+            <HeaderLink href="/art">GRAPHIC DESIGN</HeaderLink>
+        </div> -->
+        <div class="links">
+            <HeaderLink href="/ux">ux design</HeaderLink>
+            <HeaderLink href="/art">illustration</HeaderLink>
+            <HeaderLink href="/graphic-design">graphic design</HeaderLink>
+            <HeaderLink href="/#contact">contact</HeaderLink>
+            <HeaderLink href="/#about">about me</HeaderLink>
+            <HeaderLink target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/kata_plsv/">instagram</HeaderLink>
+        </div>
+        <span>© 2026 Kateřina Plešová. All rights reserved.</span>
+</footer>
+<style>
+
+    footer {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 20rem;
+        gap: 1.5rem;
+    }
+    .links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+        /* padding: 2rem 30rem; */
+    }
+    a {
+        color: white;
+        text-decoration: none;
+        text-wrap: none;
+        /* margin-right: 1rem; */
+    }
+    span {
+        color: white;
+        font-weight: 200;
+        font-size: 0.9rem;
+    }
+    .col {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: center;
+    }
+</style>

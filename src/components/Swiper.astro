@@ -1,0 +1,38 @@
+<!-- ---
+const slides = [ 'src/assets/banner/morena.png', 'src/assets/banner/apples.png', 'src/assets/banner/kareliv.png'];
+---
+
+<section id="ProjectSlider" class="swiper">
+    <ul class="swiper-wrapper" data-cursor="swipe">
+        {
+            slides.map((slide) => (
+                <li class="swiper-slide">
+                        <img src={slide} alt="" />
+                </li>
+            ))
+        }
+    </ul>
+</section>
+
+<script>
+    import 'swiper/css';
+    import Swiper from 'swiper';
+    import { register } from 'swiper/element/bundle';
+    register();
+
+    const swiper = new Swiper('#ProjectSlider', {
+        // Setup
+        loop: false,
+        autoplay: false,
+        grabCursor: false,
+        mousewheel: false,
+    });
+
+</script>
+
+<style>
+    section {
+        height: 20em;
+        width: 100%;
+    }
+</style> -->

@@ -6,12 +6,13 @@ import HeaderLink from './HeaderLink.astro';
     <nav>
         <h1><a href="/">plesova_katerina</a></h1>
         <div class="topbar-center">
-            <HeaderLink href="/about">About</HeaderLink>
-            <HeaderLink href="/ux-portfolio">UX/UI Design</HeaderLink>
-            <HeaderLink href="/artwork-portfolio">Artwork</HeaderLink>
+            <HeaderLink href="/ux">UX DESIGN</HeaderLink>
+            <HeaderLink href="/art">ILLUSTRATION</HeaderLink>
+            <HeaderLink href="/graphic-design">GRAPHIC DESIGN</HeaderLink>
         </div>
-        <div>
-            <HeaderLink href="/contact">Contact</HeaderLink>
+        <div class="topbar-right">
+            <HeaderLink href="/#about">about me</HeaderLink>
+            <!-- <HeaderLink href="/#contact">contact</HeaderLink> -->
         </div>
     </nav>
 </header>
@@ -19,7 +20,7 @@ import HeaderLink from './HeaderLink.astro';
 <style>
     header {
 		margin: 0;
-		padding: 0 1em;
+		padding: 0 4em;
 		background: black;
 	}
     nav {
@@ -27,35 +28,45 @@ import HeaderLink from './HeaderLink.astro';
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        padding: 0.8rem 3rem 0.8rem 3rem;
+        /* padding: 0.8rem 3rem 0.8rem 3rem; */
     }
 
     h1 {
         color: white;
+        font-weight: inherit;
         font-size: 1.5rem;
-        margin-right: 2rem;
     }
 
     a {
         color: white;
         text-decoration: none;
-        margin-right: 1rem;
+        text-wrap: nowrap;
     }
 
-    .topbar-center a {
-        border-bottom: 4px solid transparent;
-    }
+    /* .topbar-right a {
+        font-weight: lighter;
+    } */
 
     .topbar-center a.active, .topbar-center a:hover {
 		text-decoration: none;
         color: var(--accent);
-		border-bottom-color: var(--accent);
 	}
 
     .topbar-center {
+        display: flex;
+        gap: 1.5rem;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
     }
+
+    .topbar-right {
+        display: flex;
+        gap: 1.5rem;
+    }
+/* 
+    #contact {
+	    scroll-behavior: smooth;
+    } */
     
 </style>
